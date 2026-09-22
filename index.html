@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>2026教師節-我的主打歌3</title>
+    <title>2026教師節-AI的主打歌3</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     
@@ -49,29 +49,35 @@
             box-shadow: inset 0 4px 15px rgba(0,0,0,0.4);
             border: 1px solid rgba(255,255,255,0.05);
             overflow-y: auto;
-            -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
-            mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
-            -ms-overflow-style: none;  
-            scrollbar-width: none;  
+            /* 縮小遮罩範圍，讓純文字閱讀更舒適 */
+            -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%);
+            mask-image: linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%);
+            /* 開啟捲軸支援 (移除隱藏捲軸的屬性) */
+            scrollbar-width: thin;
+            scrollbar-color: rgba(255,255,255,0.2) transparent;
         }
 
+        /* 針對 Webkit 瀏覽器客製化捲軸樣式 */
         .lyrics-wrapper::-webkit-scrollbar { 
-            display: none; 
+            width: 6px; 
+        }
+        .lyrics-wrapper::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .lyrics-wrapper::-webkit-scrollbar-thumb {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+        }
+        .lyrics-wrapper::-webkit-scrollbar-thumb:hover {
+            background-color: rgba(255, 255, 255, 0.4);
         }
 
         .lyrics-container {
-            padding: 10vh 0; /* 縮小上下間距，因為不需要強制置中 */
+            padding: 20px 0; /* 移除原本為了置中而留下的大量空白，改為正常間距 */
         }
 
         .lyric-line {
             transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
-        }
-
-        /* Active Lyric KTV Glowing Effect */
-        .lyric-line.active {
-            color: #00a8ff; 
-            text-shadow: 0px 0px 12px rgba(0, 168, 255, 0.8), 0px 0px 2px rgba(255, 255, 255, 0.5);
-            transform: scale(1.02); /* Slight pop to emphasize the active line */
         }
 
         /* Progress Bar Styling */
@@ -162,20 +168,1020 @@
 
     <script>
         const mediaDatabase = {
-            "1": {
-                coverUrl: "https://picsum.photos/400/400?random=1", 
-                audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
-                lrc: `
-[00:00.00] 準備播放：我的主題曲
-[00:05.00] 這次，字體不會再放大了
-[00:10.50] 而是呈現清楚的KTV亮藍色與發光感
-[00:15.20] 你可以試著用滑鼠(或手指)上下拖曳這段歌詞
-[00:20.00] 音樂會超級滑順地跟著你的拖曳來快轉或倒轉
-[00:25.50] 這就是頂級音樂App的操作體驗
-[00:30.00] 放開手指後，系統會自動接手捲動
-[00:35.00] 享受這段專屬於你的旋律
-                `
-            }
+           
+          "1": {
+        coverUrl: "范宏基.png",
+        audioUrl: "范宏基.mp3",
+        lyricsText: `
+[Verse 1]
+戴著眼鏡 溫暖的笑意
+黑色襯衫 繡著金絲的錦鯉
+總務處裡 忙碌的身影
+他是出納組長 范宏基老師最神氣
+
+[Chorus]
+嗶一下 NFC 輕鬆又便利
+招財貓在桌上 招來滿滿好運氣
+數字對得齊 帳目最清晰
+有宏基老師在 大家都安心
+
+[Verse 2]
+精打細算 每一筆公款
+熱心服務 笑容從不間斷
+專業的態度 守護著校園
+點點滴滴 都有他的溫暖
+
+[Chorus]
+嗶一下 NFC 輕鬆又便利
+招財貓在桌上 招來滿滿好運氣
+數字對得齊 帳目最清晰
+有宏基老師在 大家都安心
+
+[Outro]
+滴答滴 算盤聲化作了旋律
+宏基老師 謝謝您的守護與心意
+`
+    },
+
+    "2": {
+        coverUrl: "留君毓.png",
+        audioUrl: "留君毓.mp3",
+        lyricsText: `
+[Verse 1]
+戴上灰色毛帽 圍起溫暖的圍巾
+留君毓老師 帶著微笑走進班級
+眼鏡後的目光 藏著最懂我們的溫柔
+高年級的挑戰 有您陪伴就不會發抖
+
+[Chorus]
+聽 教室裡傳來陣陣讀書聲與笑語
+您像春風 吹散了我們成長的猶豫
+大手牽著小手 走向未來的旅途
+謝謝您 留君毓老師 最溫暖的守護
+
+[Verse 2]
+黑板上的粉筆 寫下青春的日記
+高年級的我們 有時調皮也有點叛逆
+您總是用耐心 傾聽著每一顆心靈
+就像櫻花飄落 帶給我們滿滿的幸運
+
+[Chorus]
+聽 教室裡傳來陣陣讀書聲與笑語
+您像春風 吹散了我們成長的猶豫
+大手牽著小手 走向未來的旅途
+謝謝您 留君毓老師 最溫暖的守護
+
+[Outro]
+音符在風中飄揚 歌聲在心底迴盪
+最棒的班導師 帶領我們勇敢飛翔
+謝謝您 留老師
+`
+    },
+
+    "3": {
+        coverUrl: "馬振俊.png",
+        audioUrl: "馬振俊.mp3",
+        lyricsText: `
+[Verse 1]
+藍色運動衫 汗水在閃爍
+馬振俊老師 站在操場最前頭
+招牌的剪刀手 笑容多溫厚
+今天又是充滿活力的一天囉
+
+[Chorus]
+跟著馬老師 跑一步兩步向前衝
+大口吃著飯糰 補充能量不退縮
+第一名的熱情 暖進我們心窩
+體育課的鐘聲 響起最快樂的歌
+
+[Verse 2]
+斜背著黑色小包 步伐多灑脫
+像隻可愛狸貓 守護著每個角落
+不管是跑步 還是打球的節奏
+只要有你在 汗水都變成彩虹
+
+[Chorus]
+跟著馬老師 跑一步兩步向前衝
+大口吃著飯糰 補充能量不退縮
+第一名的熱情 暖進我們心窩
+體育課的鐘聲 響起最快樂的歌
+
+[Outro]
+耶！比個YA！
+振俊老師 帶領我們往前飛
+健康滿分 快樂乾杯！
+`
+    },
+
+    "4": {
+        coverUrl: "高琬婷.png",
+        audioUrl: "高琬婷.mp3",
+        lyricsText: `
+[Verse 1]
+白色的 T 恤 藍色牛仔褲
+琬婷老師帶著溫暖的笑步入
+懷裡抱著一隻白色小熊
+用耐心和愛 點亮每個迷惘的夢
+
+[Chorus]
+特教的路 有妳溫柔守護
+像春天的風 吹散了迷霧
+高琬婷老師 手牽著手不孤獨
+陪伴著獨特的花朵 慢慢地復甦
+
+[Verse 2]
+亮麗的長髮 眼神多麼專注
+懷裡的小熊 也是妳溫暖的信物
+一聲聲鼓勵 融化了冷酷
+每個慢飛的天使 都有妳給的幸福
+
+[Chorus]
+特教的路 有妳溫柔守護
+像春天的風 吹散了迷霧
+高琬婷老師 手牽著手不孤獨
+陪伴著獨特的花朵 慢慢地復甦
+
+[Outro]
+謝謝妳的愛 像陽光般輕撫
+琬婷老師 謝謝妳的付出
+陪伴我們 一步一步
+`
+    },
+
+    "5": {
+        coverUrl: "高麗婷.png",
+        audioUrl: "高麗婷.mp3",
+        lyricsText: `
+[Verse 1]
+短髮齊瀏海 帶著圓圓眼鏡
+穿上粉藍丹寧 走進了班級
+麗婷老師的笑容 像陽光般和煦
+照亮我們中年級 成長的軌跡
+
+[Chorus]
+喔 高麗婷老師 帶我們看世界
+黑板上的粉筆 畫出夢想的細節
+不論數學語文 還是生活冒險
+有您的陪伴 每一天都特別
+
+[Verse 2]
+告別了低年級 剛學會了獨立
+有時候調皮 讓您操心嘆氣
+您總是溫柔叮嚀 牽著我們前行
+課堂上的笑聲 是最美的旋律
+
+[Chorus]
+喔 高麗婷老師 帶我們看世界
+黑板上的粉筆 畫出夢想的細節
+不論數學語文 還是生活冒險
+有您的陪伴 每一天都特別
+
+[Outro]
+閃爍的星星 圍繞在您身邊
+謝謝麗婷老師 守護我們的童年
+`
+    },
+
+    "6": {
+        coverUrl: "張心怡.png",
+        audioUrl: "張心怡.mp3",
+        lyricsText: `
+[Verse 1]
+黑板上寫著新的一天
+心怡老師帶著甜甜笑臉
+穿上點點洋裝 轉個圈圈
+戴著眼鏡 溫柔看著我們的小臉
+
+[Chorus]
+一二三 齊步走 牽著我們的小手
+心怡老師 像溫暖的太陽照著我
+聽著故事 唱著歌 快樂在身後
+低年級的教室裡 每天都溫柔
+
+[Verse 2]
+下課鐘聲響起 操場上奔跑
+老師在走廊 靜靜看著我們笑
+手腕上的手錶 滴答滴答跳
+有您陪伴的日子 真的好美妙
+
+[Chorus]
+一二三 齊步走 牽著我們的小手
+心怡老師 像溫暖的太陽照著我
+聽著故事 唱著歌 快樂在身後
+低年級的教室裡 每天都溫柔
+
+[Outro]
+謝謝心怡老師 帶我們去冒險
+每天的笑容 都是最美的畫面
+愛您喔！
+`
+    },
+
+    "7": {
+        coverUrl: "張月霞.png",
+        audioUrl: "張月霞.mp3",
+        lyricsText: `
+[Verse 1]
+留著齊瀏海 披著黑長髮
+穿上暖橘色的衣裳 迎接新朝霞
+張開雙手 牽起小小手掌
+低年級的教室裡 充滿了希望
+
+[Chorus]
+月霞老師 像溫暖的月亮
+指引著我們 避開迷惘的方向
+月霞老師 像彩色的晚霞
+用愛心和耐心 陪著我們長大
+
+[Verse 2]
+一筆一劃 教我們寫字讀書
+輕輕地摸頭 驅散所有哭訴
+妳那溫柔的笑容 比星星更亮
+在我們心底 種下快樂的翅膀
+
+[Chorus]
+月霞老師 像溫暖的月亮
+指引著我們 避開迷惘的方向
+月霞老師 像彩色的晚霞
+用愛心和耐心 陪著我們長大
+
+[Outro]
+謝謝您 守護著我們的童年
+月霞老師 笑容永遠那麼甜
+手牽手 我們一起向前
+`
+    },
+
+    "8": {
+        coverUrl: "張育婷.png",
+        audioUrl: "張育婷.mp3",
+        lyricsText: `
+[Verse 1]
+波浪長髮 帶著燦爛的笑容
+翻開書頁 帶領我們去太空
+戴著金色手錶 記錄時間的輕盈
+育婷老師的雙眼 閃爍智慧的亮晶晶
+
+[Chorus]
+絲竹樂聲響起 琴弦在撥動
+國樂團的排練 充滿熱情與感動
+身邊圍繞著貓咪 還有閃亮的星星
+育婷老師的課堂 永遠最溫馨
+
+[Verse 2]
+條紋上衣 搭配率性的牛仔褲
+指尖的指環 閃爍著優雅的溫度
+不只帶領我們閱讀 讀懂世界的地圖
+團務的繁雜瑣事 妳總能溫柔照顧
+
+[Chorus]
+絲竹樂聲響起 琴弦在撥動
+國樂團的排練 充滿熱情與感動
+身邊圍繞著貓咪 還有閃亮的星星
+育婷老師的課堂 永遠最溫馨
+
+[Outro]
+音符在空中飄 貓咪在喵喵叫
+謝謝育婷老師 帶給我們的美好
+下一本書 伴著琴聲 慢慢聽
+`
+    },
+
+    "9": {
+        coverUrl: "張哲豪.png",
+        audioUrl: "張哲豪.mp3",
+        lyricsText: `
+[Verse 1]
+戴著眼鏡 溫和的笑容
+穿上亮眼背心 站在球場中
+哲豪老師 哨音已吹響
+黑T恤和運動短褲 散發著光芒
+
+[Chorus]
+運球 突破 瞄準那籃框
+教練在身旁 給我們力量
+汗水在閃耀 青春在飛揚
+張哲豪老師 帶我們飛向前方
+
+[Verse 2]
+不只教戰術 還無微不至地守護
+像那亮綠背心 在球場最矚目
+拍拍肩膀 說一聲加油
+籃球隊的靈魂 是你溫暖的雙手
+
+[Chorus]
+運球 突破 瞄準那籃框
+教練在身旁 給我們力量
+汗水在閃耀 青春在飛揚
+張哲豪老師 帶我們飛向前方
+
+[Outro]
+下課鐘聲響 籃球不停息
+謝謝哲豪教練 我們永遠挺你！
+`
+    },
+
+    "10": {
+        coverUrl: "張家豪.png",
+        audioUrl: "張家豪.mp3",
+        lyricsText: `
+[Verse 1]
+黑色的運動Polo衫 襯托著陽光
+手上運動錶 滴答倒數著課堂
+家豪老師帶著微笑 走進了教室旁
+高年級的我們 準備要展翅飛翔
+
+[Chorus]
+這裡是我們最愛的可樂國
+氣泡般冒出 停不下的歡樂
+不怕挑戰 困難一秒就攻破
+有家豪老師在 身旁守護著我
+
+[Verse 2]
+雙臂交叉 眼神裡都是信任
+看著我們成長 像大樹般茂盛
+可樂國的汽水 噴發出無限可能
+熱血的節奏 帶領我們向前奔
+
+[Chorus]
+這裡是我們最愛的可樂國
+氣泡般冒出 停不下的歡樂
+不怕挑戰 困難一秒就攻破
+有家豪老師在 身旁守護著我
+
+[Outro]
+可樂國的冒險 還在繼續呢
+家豪老師 謝謝你 陪我們唱著這首歌
+衝吧！可樂國！
+`
+    },
+
+    "11": {
+        coverUrl: "張庭瑜.png",
+        audioUrl: "張庭瑜.mp3",
+        lyricsText: `
+[Verse 1]
+渲染著彩虹般的漂亮衣裳
+庭瑜老師帶著最溫暖的目光
+輕輕的瀏海 甜甜的笑臉
+在特教的世界裡 點亮了明天
+
+[Chorus]
+張開雙手 抱著希望的翅膀
+庭瑜老師 永遠陪在我們身旁
+愛心與星光 在教室裡飛揚
+妳的耐心 像陽光一樣溫暖
+
+[Verse 2]
+黑板上畫著音符 唱著快樂歌聲
+用愛灌溉 每一顆獨特的心靈
+不怕慢 慢慢來 妳總是在身邊
+雙手環抱 給我們最安心的依戀
+
+[Chorus]
+張開雙手 抱著希望的翅膀
+庭瑜老師 永遠陪在我們身旁
+愛心與星光 在教室裡飛揚
+妳的耐心 像陽光一樣溫暖
+
+[Outro]
+謝謝妳 庭瑜老師
+我們最溫柔的特教天使
+帶著笑容 一起走向幸福的明天
+`
+    },
+
+    "12": {
+        coverUrl: "張純鈞.png",
+        audioUrl: "張純鈞.mp3",
+        lyricsText: `
+[Verse 1]
+短髮戴著眼鏡 溫暖的笑容
+黑色蕾絲衣袖 襯托著優雅從容
+純鈞老師站在講台 雙手指揮著夢
+五線譜的音符 悄悄在教室裡跳動
+
+[Chorus]
+身為藝才組長 點亮藝術的光芒
+手裡捧著花束 散發著芬芳
+比個勝利的V 笑容多麼明亮
+美妙的旋律 永遠在我們心底迴響
+
+[Verse 2]
+琴聲叮咚響起 帶領我們啟航
+音樂課的時光 總是充滿著希望
+您用溫柔的歌聲 織成最美的樂章
+讓每個孩子的才華 都能自由飛翔
+
+[Chorus]
+身為藝才組長 點亮藝術的光芒
+手裡捧著花束 散發著芬芳
+比個勝利的V 笑容多麼明亮
+美妙的旋律 永遠在我們心底迴響
+
+[Outro]
+謝謝您 純鈞老師
+音符圍繞著您 就像溫暖的陽光
+這是送給您 最真誠的歌唱
+`
+    },
+
+    "14": {
+        coverUrl: "張舜傑.png",
+        audioUrl: "張舜傑.mp3",
+        lyricsText: `
+[Verse 1]
+戴著深藍棒球帽 溫暖的微笑
+綠色羽絨外套 陪著我們奔跑
+張舜傑老師 站在黑板前
+帶領著中年級 飛向新冒險
+
+[Chorus]
+舜傑老師 像溫柔的風
+看著我們成長 聽著我們的夢
+桌前一杯咖啡 寫下滿滿期許
+中年級的教室裡 都是溫馨的旋律
+
+[Verse 2]
+鼻樑上的眼鏡 藏著智慧的光
+耐心聽我們說 那些奇妙幻想
+下課鐘聲響起 操場充滿陽光
+有您的陪伴 學習多麼開朗
+
+[Chorus]
+舜傑老師 像溫柔的風
+看著我們成長 聽著我們的夢
+桌前一杯咖啡 寫下滿滿期許
+中年級的教室裡 都是溫馨的旋律
+
+[Outro]
+謝謝您 舜傑老師
+綠色外套的背影 是最安心的依靠
+陪伴我們 快樂長大
+`
+    },
+
+
+
+    "15": {
+        coverUrl: "張鎧馪.png",
+        audioUrl: "張鎧馪.mp3",
+        lyricsText: `
+[Verse 1]
+粉紅T恤配上工裝褲
+戴著眼鏡 笑容最溫暖
+校園的每個角落 只要有你在
+總務處的賓姐 隨時都溫暖
+
+[Chorus]
+親切的賓姐 活力滿點
+守護著校園 帶給我們笑臉
+熱心又溫柔 忙碌著每一天
+有你真好 幸福就在身邊
+
+[Verse 2]
+雙手比著臉頰 亮晶晶的眼
+不怕辛苦流汗 默默在奉獻
+櫻花和小貓 圍繞你身邊
+最棒的工務夥伴 大家都愛你
+
+[Chorus]
+親切的賓姐 活力滿點
+守護著校園 帶給我們笑臉
+熱心又溫柔 忙碌著每一天
+有你真好 幸福就在身邊
+
+[Outro]
+謝謝你 鎧賓姐
+最溫暖的賓姐
+今天也辛苦啦！
+`
+    },
+
+    "16": {
+        coverUrl: "張瓊月.png",
+        audioUrl: "張瓊月.mp3",
+        lyricsText: `
+[Verse 1]
+長髮披肩 穿著碎花洋裝
+瓊月老師 帶著溫暖目光
+雙臂抱胸 展現自信模樣
+鍵盤敲奏著 智慧的樂章
+
+[Chorus]
+喔 資訊組長 瓊月老師最棒
+網路斷線 系統當機 都不用慌張
+NFC 嗶一下 幸福在發光
+螢幕前 妳就是 溫柔的太陽
+
+[Verse 2]
+身邊圍繞 櫻花星星和貓咪
+代碼與程式 變得好有趣
+熱心解答 每個疑難雜症
+校園的科技 有妳就搞定
+
+[Chorus]
+喔 資訊組長 瓊月老師最棒
+網路斷線 系統當機 都不用慌張
+NFC 嗶一下 幸福在發光
+螢幕前 妳就是 溫柔的太陽
+
+[Outro]
+瓊月老師 謝謝妳的幫忙
+科技的世界 閃耀著光芒
+嗶 一聲 幸福上線
+`
+    },
+
+    "17": {
+        coverUrl: "莊以真.png",
+        audioUrl: "莊以真.mp3",
+        lyricsText: `
+[Verse 1]
+黑框眼鏡後是溫暖的眼睛
+白色上衣印著盛開的玫瑰
+莊以真老師站在教室門口
+迎接中年級孩子們的笑聲
+
+[Chorus]
+以真老師 像溫暖的太陽
+照亮我們 探索世界的路旁
+雙手抱胸 帶著自信的微笑
+陪伴我們 慢慢茁壯成長
+
+[Verse 2]
+告別了低年級的懵懂青澀
+我們在中年級寫下新歌
+聽著您的叮嚀 看著您的身影
+學習變得像冒險一樣快樂
+
+[Chorus]
+以真老師 像溫暖的太陽
+照亮我們 探索世界的路旁
+雙手抱胸 帶著自信的微笑
+陪伴我們 慢慢茁壯成長
+
+[Outro]
+謝謝您 每一天的溫柔守護
+以真老師 我們最愛的導師
+大手牽小手 一起向前走
+`
+    },
+
+    "18": {
+        coverUrl: "許夙岑.png",
+        audioUrl: "許夙岑.mp3",
+        lyricsText: `
+[Verse 1]
+背上藍色的雙肩包
+穿上繽紛的花外套
+夙岑老師戴上墨鏡
+嘴角帶著溫暖微笑
+張開雙臂 擁抱風的呼喚
+
+[Chorus]
+特教的路 是一場冒險
+用愛融化 所有的考驗
+看見山海 聽見歡喜的歌聲
+手牽著手 走向陽光燦爛的明天
+
+[Verse 2]
+櫻花飄落 點綴著夢想
+不怕困難 逆著光飛翔
+每個孩子 都是獨特的星光
+在妳眼裡 閃耀最美光芒
+
+[Chorus]
+特教的路 是一場冒險
+用愛融化 所有的考驗
+看見山海 聽見歡喜的歌聲
+手牽著手 走向陽光燦爛的明天
+
+[Outro]
+冒險的路上 永遠有喜悅
+夙岑老師 帶領我們飛越
+愛在身邊 溫暖無限
+`
+    },
+
+    "19": {
+        coverUrl: "許竫屏.png",
+        audioUrl: "許竫屏.mp3",
+        lyricsText: `
+[Verse 1]
+留著齊瀏海 溫柔的眼光
+許竫屏老師 走進了課堂
+無袖的洋裝 像彩虹一樣
+大手牽小手 帶我們啟航
+
+[Chorus]
+低年級的教室 充滿了陽光
+竫屏老師的笑容 像星星閃亮
+一二三四 快樂地成長
+有您的陪伴 我們大聲唱
+
+[Verse 2]
+手腕上的手錶 滴答滴答響
+耐心的叮嚀 溫暖了心房
+雲朵和音符 在身邊飛揚
+注音和數字 變得好簡單
+
+[Chorus]
+低年級的教室 充滿了陽光
+竫屏老師的笑容 像星星閃亮
+一二三四 快樂地成長
+有您的陪伴 我們大聲唱
+
+[Outro]
+最愛的 竫屏老師
+謝謝您 帶給我們 滿滿的力量
+手牽手 一起向未來 出發！
+`
+    },
+
+    "20": {
+        coverUrl: "許蕙蘭.png",
+        audioUrl: "許蕙蘭.mp3",
+        lyricsText: `
+[Verse 1]
+深藍格紋 襯托著溫柔目光
+戴著眼鏡 妳在黑板前張望
+中年級的教室 充滿歡笑與希望
+蕙蘭老師 帶領著我們翱翔
+
+[Chorus]
+像春天的蕙蘭 悄悄地綻放
+手折一朵粉紅 散發著芬芳
+妳的笑容 像月亮一樣明亮
+溫暖著我們 每個成長的模樣
+
+[Verse 2]
+頭頂的小貓 哼著歌聲多嘹亮
+黑板上的音符 隨風輕輕盪
+聽妳說著故事 課堂不再漫長
+陪伴我們 走向更遠的地方
+
+[Chorus]
+像春天的蕙蘭 悄悄地綻放
+手折一朵粉紅 散發著芬芳
+妳的笑容 像月亮一樣明亮
+溫暖著我們 每個成長的模樣
+
+[Outro]
+謝謝妳 蕙蘭老師
+像花開的季節 永遠溫暖芬芳
+在我們心房
+`
+    },
+
+    "21": {
+        coverUrl: "許瓊文.png",
+        audioUrl: "許瓊文.mp3",
+        lyricsText: `
+[Verse 1]
+俏麗的短髮 帶著溫暖微笑
+白T恤上寫著 Bon voyage 的美好
+瓊文老師走進教室 陽光剛剛好
+手裡拿著咖啡 準備帶我們起跑
+
+[Chorus]
+跟著瓊文老師 探索英文的奧妙
+ABC的音符 像小鳥在樹梢歌唱
+世界這麼大 帶著平和的擁抱
+Bon voyage 我們的夢想 正在起飛閃耀
+
+[Verse 2]
+課堂像一場旅行 櫻花空中飄
+文法和單字 其實也沒那麼難搞
+妳用最年輕的活力 把熱情燃燒
+每一個發音 都有溫柔的調調
+
+[Chorus]
+跟著瓊文老師 探索英文的奧妙
+ABC的音符 像小鳥在樹梢歌唱
+世界這麼大 帶著平和的擁抱
+Bon voyage 我們的夢想 正在起飛閃耀
+
+[Outro]
+謝謝瓊文老師 溫暖的引導
+未來的旅程 我們一起大聲笑
+Have a nice trip!
+Goodbye!
+`
+    },
+
+    "22": {
+        coverUrl: "郭昱辰.png",
+        audioUrl: "郭昱辰.mp3",
+        lyricsText: `
+[Verse 1]
+戴上黑色鴨舌帽 眼神鎖定目標
+郭昱辰老師 站在綠茵場上指導
+黑色Polo衫 還有手腕上的智慧錶
+哨音一響 青春的熱血在燃燒
+
+[Chorus]
+奔跑吧 迎著風 腳下的足球在旋轉
+教練在場邊 帶領我們衝破難關
+每一次傳球 都是默契的考驗
+昱辰教練 陪我們贏得每一場挑戰
+
+[Verse 2]
+雙臂環抱 胸有成竹的自信微笑
+戰術板上 畫出屬於勝利的軌道
+不怕跌倒 拍拍灰塵我們再站好
+汗水交織 這是最驕傲的年少
+
+[Chorus]
+奔跑吧 迎著風 腳下的足球在旋轉
+教練在場邊 帶領我們衝破難關
+每一次傳球 都是默契的考驗
+昱辰教練 陪我們贏得每一場挑戰
+
+[Outro]
+汗水與夢想 在草地上閃耀
+郭老師的哨聲 是我們最強的信號
+向著勝利 奔跑！
+`
+    },
+
+    "23": {
+        coverUrl: "陳文惠.png",
+        audioUrl: "陳文惠.mp3",
+        lyricsText: `
+[Verse 1]
+俐落的短髮 溫暖的笑容
+穿上針織外套 走進了課堂
+A B C D 帶著我們大聲讀
+文惠老師的課 總是充滿陽光
+
+[Chorus]
+Oh Teacher Chen, you guide our way
+用溫柔的話語 點亮每一天
+英文的世界 不再有界限
+折一隻千紙鶴 飛向那晴天
+
+[Verse 2]
+黑板上的單字 像櫻花般飛舞
+妳用耐心的眼眸 驅散了迷霧
+不怕說錯 勇敢踏出第一步
+在妳的課堂裡 我們學會了自主
+
+[Chorus]
+Oh Teacher Chen, you guide our way
+用溫柔的話語 點亮每一天
+英文的世界 不再有界限
+折一隻千紙鶴 飛向那晴天
+
+[Outro]
+Thank you, Teacher Chen, our shining light
+未來的路 我們一起 fly high
+溫溫的笑容 永遠在心懷
+`
+    },
+
+    "24": {
+        coverUrl: "陳文蕙.png",
+        audioUrl: "陳文蕙.mp3",
+        lyricsText: `
+[Verse 1]
+留著溫柔長髮 穿上粉紅T恤
+嘴角帶著微笑 走進這片天地
+身為特教組長 充滿年輕活力
+用最溫暖的心 聽懂每個秘密
+
+[Chorus]
+文蕙老師 就像春天的陽光
+張開雙手 擁抱每一個願望
+不管路有多長 都有妳在身旁
+用愛與耐心 點亮小小微光
+
+[Verse 2]
+身邊有貓咪陪伴 還有飯糰香氣
+妳的笑聲 像魔法般的神奇
+牽著孩子的手 一步步向前行
+在妳的羽翼下 快樂自由飛行
+
+[Chorus]
+文蕙老師 就像春天的陽光
+張開雙手 擁抱每一個願望
+不管路有多長 都有妳在身旁
+用愛與耐心 點亮小小微光
+
+[Outro]
+最年輕的組長 散發溫暖力量
+文蕙老師 謝謝妳的微光
+`
+    },
+
+    "25": {
+        coverUrl: "陳秀如.png",
+        audioUrl: "陳秀如.mp3",
+        lyricsText: `
+[Verse 1]
+黑色的長髮 帶著溫暖目光
+秀如老師 每天守候在課堂
+簡單的白T恤 穿出最親切的模樣
+手腕上的玉鐲 閃爍著守護的光芒
+
+[Chorus]
+三年級 四年級 我們漸漸長大
+中年級的路上 有您溫柔的引導
+像身邊飛舞的櫻花 盛開得優雅
+秀如老師 謝謝您給我們的解答
+
+[Verse 2]
+手串輕輕搖晃 寫下知識的魔法
+教室裡充滿了 星星與音符的童話
+您用無比的耐心 聽懂我們的小八卦
+讓我們在愛裡 快樂地發芽
+
+[Chorus]
+三年級 四年級 我們漸漸長大
+中年級的路上 有您溫柔的引導
+像身邊飛舞的櫻花 盛開得優雅
+秀如老師 謝謝您給我們的解答
+
+[Outro]
+微風吹進了窗 帶來陣陣花香
+秀如老師 謝謝您最溫暖的力量
+`
+    },
+
+    "26": {
+        coverUrl: "陳宜婷.png",
+        audioUrl: "陳宜婷.mp3",
+        lyricsText: `
+[Verse 1]
+戴著親切眼鏡 笑容多麼溫暖
+穿著黑色T恤 活力總是不斷
+宜婷老師站在 教室的門口
+迎接每一個 剛入學的小可愛
+
+[Chorus]
+一二三 齊步走 跟著宜婷老師
+低年級的世界 充滿奇妙故事
+像星星閃爍 像雲朵在跳舞
+有您的陪伴 我們不怕迷路
+
+[Verse 2]
+手腕上的手錶 記錄快樂時光
+黑板旁的貓咪腳印 畫出新希望
+您用無比耐心 聽我們講悄悄話
+溫柔的雙眼 像陽光般晴朗
+
+[Chorus]
+一二三 齊步走 跟著宜婷老師
+低年級的世界 充滿奇妙故事
+像星星閃爍 像雲朵在跳舞
+有您的陪伴 我們不怕迷路
+
+[Outro]
+最棒的宜婷老師 謝謝您
+手拉手 一起快樂成長去！
+`
+    },
+
+    "27": {
+        coverUrl: "陳俊欽.png",
+        audioUrl: "陳俊欽.mp3",
+        lyricsText: `
+[Verse 1]
+藍色T恤 帶著溫暖的微笑
+俊欽主任 每天在輔導室報到
+雙臂抱胸 聽著少年的煩惱
+鏡框背後 是最懂我們的眼角
+
+[Chorus]
+輔導室的門 永遠為你開著
+資深的溫柔 像微風般吹拂
+不論晴天雨天 都有你在這
+指引著方向 陪伴我們成長的旅途
+
+[Verse 2]
+歲月在眼角 寫下了智慧
+聽你說著夢想 拍拍肩膀不累
+那些青春的迷惘與淚水
+在你的笑容裡 慢慢化作安慰
+
+[Chorus]
+輔導室的門 永遠為你開著
+資深的溫柔 像微風般吹拂
+不論晴天雨天 都有你在這
+指引著方向 陪伴我們成長的旅途
+
+[Outro]
+謝謝你 俊欽主任
+那道最溫暖的光芒
+照亮我們 勇敢飛向遠方
+`
+    },
+
+    "28": {
+        coverUrl: "陳奕慈.png",
+        audioUrl: "陳奕慈.mp3",
+        lyricsText: `
+[Verse 1]
+穿上溫暖的針織毛衣
+長長的捲髮像溫柔的漣漪
+奕慈老師帶著甜甜的笑意
+臉頰上的酒窩是魔法的秘密
+
+[Chorus]
+牽著慢飛的天使一步步走
+用愛與耐心把世界點亮
+在特教的班級裡有妳守候
+像微風吹散了所有迷惘
+
+[Verse 2]
+星星和花朵圍繞在妳身旁
+眼神裡閃爍著包容的光芒
+不論路有多長 都有妳在身旁
+輕聲細語 撫平了受傷的翅膀
+
+[Chorus]
+牽著慢飛的天使一步步走
+用愛與耐心把世界點亮
+在特教的班級裡有妳守候
+像微風吹散了所有迷惘
+
+[Outro]
+謝謝妳 奕慈老師的溫柔
+讓每個獨特的心 都有港口
+暖暖的酒窩 永遠在心頭
+`
+    },
+
+    "29": {
+        coverUrl: "陳美蘭.png",
+        audioUrl: "陳美蘭.mp3",
+        lyricsText: `
+[Verse 1]
+戴上眼鏡 彎彎的眼睛
+紫色的上衣 印著溫暖的小羊群
+美蘭老師 用最溫柔的聲音
+牽起每一雙 慢飛天使的手心
+
+[Chorus]
+輕輕比個心 愛就在這裡
+特教的路漫長 有您陪伴就安心
+像春天的蘭花 默默散發著香氣
+美蘭老師 用愛灌溉每個奇蹟
+
+[Verse 2]
+不急不徐 聽懂你的話語
+一步步累積 寫下成長的日記
+圓圓的笑臉 像太陽般和煦
+手心的溫度 融化了所有風雨
+
+[Chorus]
+輕輕比個心 愛就在這裡
+特教的路漫長 有您陪伴就安心
+像春天的蘭花 默默散發著香氣
+美蘭老師 用愛灌溉每個奇蹟
+
+[Outro]
+小羊在草地上 快樂地奔跑去
+謝謝您 我們的美蘭老師
+這份愛 永遠美麗
+`
+    },
+
+    "30": {
+        coverUrl: "陳羿伶.png",
+        audioUrl: "陳羿伶.mp3",
+        lyricsText: `
+[Verse 1]
+戴上帥氣牛仔帽 迎著陽光跑
+翠綠的外套 嘴角微微笑
+學務處的活力指標 大家都知道
+陳羿伶老師 帶領我們往前衝高
+
+[Chorus]
+活動組長 活力全開
+有妳在的校園 永遠最精彩
+不論是露營 還是運動會的舞台
+跟著羿伶老師 青春無限嗨
+
+[Verse 2]
+相機掛在胸前 紀錄每個笑臉
+貝殼和星星 點綴著晴朗藍天
+熱情不怕累 創意沒有極限
+有妳在身邊 每天都是冒險
+
+[Chorus]
+活動組長 活力全開
+有妳在的校園 永遠最精彩
+不論是露營 還是運動會的舞台
+跟著羿伶老師 青春無限嗨
+
+[Outro]
+陽光灑落 歌聲在校園迴盪
+最棒的羿伶老師 永遠閃閃發亮！
+`
+    }
+
+            
         };
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -195,8 +1201,6 @@
             const durationTimeEl = document.getElementById('duration-time');
 
             let isAudioLoaded = false;
-            let parsedLyrics = []; 
-            let currentLyricIndex = -1; 
             let hasAttemptedAutoplay = false;
 
             // 輔助函式：時間格式化為 MM:SS
@@ -207,34 +1211,16 @@
                 return `${minutes}:${seconds.toString().padStart(2, '0')}`;
             }
 
-            function parseLRC(lrcString) {
-                const lines = lrcString.split('\n');
-                const result = [];
-                const timeReg = /\[(\d{2}):(\d{2})\.(\d{2,3})\]/;
-                
-                for (let line of lines) {
-                    const match = line.match(timeReg);
-                    if (match) {
-                        const min = parseInt(match[1]);
-                        const sec = parseInt(match[2]);
-                        const ms = parseInt(match[3].padEnd(3, '0')); 
-                        const time = min * 60 + sec + ms / 1000;
-                        const text = line.replace(timeReg, '').trim();
-                        if (text) {
-                            result.push({ time: time, text: text });
-                        }
-                    }
-                }
-                return result;
-            }
-
-            function renderLyrics(lyrics) {
+            // 渲染純文字歌詞
+            function renderLyrics(text) {
                 lyricsContainer.innerHTML = ''; 
-                lyrics.forEach((lyric, index) => {
+                const lines = text.split('\n');
+                lines.forEach((line) => {
+                    const trimmedLine = line.trim();
                     const div = document.createElement('div');
-                    div.className = 'lyric-line py-3 px-4 text-base text-gray-500 font-medium min-h-[20px]';
-                    div.id = `lyric-${index}`;
-                    div.innerText = lyric.text;
+                    // 沒有時間高亮了，直接把文字調亮 (text-gray-300)
+                    div.className = 'lyric-line py-2 px-4 text-base text-gray-300 font-medium min-h-[28px]';
+                    div.innerText = trimmedLine;
                     lyricsContainer.appendChild(div);
                 });
             }
@@ -258,11 +1244,10 @@
                 cover.src = userData.coverUrl;
                 audio.src = userData.audioUrl;
 
-                if (userData.lrc) {
-                    parsedLyrics = parseLRC(userData.lrc);
-                    renderLyrics(parsedLyrics);
+                if (userData.lyricsText) {
+                    renderLyrics(userData.lyricsText);
                 } else {
-                    lyricsContainer.innerHTML = '<div class="lyric-line text-gray-500 py-3">無歌詞資料</div>';
+                    lyricsContainer.innerHTML = '<div class="lyric-line text-gray-400 py-3">無歌詞資料</div>';
                 }
 
                 cover.onload = () => {
@@ -308,34 +1293,12 @@
                 isScrubbing = false;
             });
 
-            // 音樂時間更新邏輯
+            // 音樂時間更新邏輯 (現在只負責更新進度條，不再連動歌詞)
             audio.addEventListener('timeupdate', () => {
                 // 如果使用者沒有在拖曳進度條，自動更新進度條數值
                 if (!isScrubbing) {
                     progressBar.value = audio.currentTime;
                     currentTimeEl.innerText = formatTime(audio.currentTime);
-                }
-
-                if (parsedLyrics.length === 0) return;
-                
-                const currentTime = audio.currentTime;
-                let newIndex = parsedLyrics.findIndex((lyric, index) => {
-                    const nextTime = parsedLyrics[index + 1] ? parsedLyrics[index + 1].time : Infinity;
-                    return currentTime >= lyric.time && currentTime < nextTime;
-                });
-
-                if (newIndex !== -1 && newIndex !== currentLyricIndex) {
-                    if (currentLyricIndex !== -1) {
-                        const oldElement = document.getElementById(`lyric-${currentLyricIndex}`);
-                        if (oldElement) oldElement.classList.remove('active');
-                    }
-                    
-                    const newElement = document.getElementById(`lyric-${newIndex}`);
-                    if (newElement) {
-                        newElement.classList.add('active');
-                        // 自動滾動邏輯已移除，讓使用者自由瀏覽
-                    }
-                    currentLyricIndex = newIndex;
                 }
             });
 
